@@ -1,0 +1,25 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: postgresql
+  host: <%= ENV.fetch("RDS_HOSTNAME") { "localhost" } %>
+  port: <%= ENV.fetch("RDS_PORT") { 5432 } %>
+  username: <%= ENV.fetch("RDS_USERNAME") { "rosy" } %>
+  password: <%= ENV.fetch("RDS_PASSWORD") { "password" } %>
+  pool: <%= ENV.fetch("RDS_POOL_SIZE") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blog_graphql_api_dev
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: blog_graphql_api_test

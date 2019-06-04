@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyText
+  year: MyText
+  make: MyText
+
+two:
+  model: MyText
+  year: MyText
+  make: MyText
